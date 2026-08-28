@@ -1,0 +1,45 @@
+# This repository is an ALLOW-LIST. Everything is ignored by default and each
+# published file is named explicitly below.
+#
+# The reason is blunt: this working directory also holds full EEPROM dumps of a
+# real car. Those contain the immobiliser login code (SKC), the VIN, the key
+# transponder data and the odometer. A deny-list would be one typo away from
+# publishing them. So: deny everything, then allow.
+*
+
+!.gitignore
+!README.md
+!LICENSE
+
+# documentation
+!CLAUDE.md
+!PATCH_ENGINEERING.md
+!EEPROM_MAP.md
+!FIELD_CHEATSHEET.md
+!TEST_PLAN.md
+!VDO_9N3_FIS_analysis.md
+
+# the toolchain
+!sweep.py
+!emu_sweep.py
+!asm65.py
+!armpatch.py
+!patchblock.py
+!blobdis.py
+!gaugecal.py
+!vdo_toolkit.py
+!vdo_eeprom_codec.py
+!ramdiff.py
+!session.sh
+
+# build products of sweep.py, and the one-shot coding edits
+!sweep_code.bin
+!sweep_block.bin
+!restore_block.bin
+!cruise_word.bin
+!revert_cruise.bin
+!welcome_word.bin
+!revert_welcome.bin
+
+# NEVER: eeprom*.bin ClusterBackup*.bin VQMJ07HH_bank*.bin logs/ *.log
+# NEVER: PRIVATE_VALUES.md .session_port reference/ kw1281test* dotnet-sdk-*
